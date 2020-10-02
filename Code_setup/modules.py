@@ -9,8 +9,8 @@ import argparse
 # Import utilites
 from flask import Flask, flash, render_template, Response, request, redirect, url_for, abort
 from werkzeug.utils import secure_filename
-from object_detection.utils import label_map_util
-from object_detection.utils import visualization_utils as vis_util
+# from object_detection.utils import label_map_util
+# from object_detection.utils import visualization_utils as vis_util
 
 # for object detection.
 PERSON_MODEL = "ssd_inception_v2.pb"
@@ -26,10 +26,9 @@ filename = None
 # Person count labelmap.
 # load pbtxt file.		
 
-label_map = label_map_util.load_labelmap(PERSON_LABELS)
-categories = label_map_util.convert_label_map_to_categories(label_map,
-			 max_num_classes=PERSON_CLASSES, use_display_name=True)
-category_index = label_map_util.create_category_index(categories)
+# label_map = label_map_util.load_labelmap(PERSON_LABELS)
+# categories = label_map_util.convert_label_map_to_categories(label_map, max_num_classes=PERSON_CLASSES, use_display_name=True)
+# category_index = label_map_util.create_category_index(categories)
 
 #Person Count Detection Model.
 # Load the Tensorflow model into memory.
