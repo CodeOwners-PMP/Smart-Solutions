@@ -1,0 +1,114 @@
+<html>
+<style>
+
+input {
+  display: block;
+  font-size: 0.8em;
+  margin-top: 0.6em;
+  margin-bottom: 0.4em;
+}
+input[type=submit], input[type = text], input[type = file], button[type = submit]
+{
+  background-color: #F5F5F5;
+  border:2px solid black;
+  color: black;
+  cursor: pointer;
+  padding: 8px 18px;
+  border-radius: 12px;
+  text-align: justify;
+}
+
+input[type = number]
+{
+  background-color: #F5F5F5;
+  border:2px solid black;
+  color: black;
+  cursor: pointer;
+  text-align: justify;
+  padding: 8px 18px;
+  border-radius: 12px;
+  width: 7%;
+  margin-right: 9em;
+
+}
+input[type = text], input[type = file]
+{
+	width : 18%;
+}
+
+input[type="submit"], button[type = submit] 
+{
+	display: inline;
+	margin-left: 1em;
+	margin-right: 9em;
+}
+
+input[type = file], input[type = submit], input[type = number]
+{
+	display: inline
+}
+input[type = text], input[type = submit]
+{
+	display: inline
+}
+img
+{
+
+	margin-right: 4em;
+}
+
+
+p
+{
+	padding-right: 200px;
+}
+label
+{
+	padding-right: 130;
+}
+b
+{
+	padding-right: 100;
+}
+input[type = submit]
+{
+	padding-right = 200;
+}
+
+</style>
+
+<script>
+function myFunction() 
+{
+  document.getElementById("myNumber");
+}
+
+</script>
+
+<div align="center">
+<body>
+    <h1>OBJECT DETECTION APP</h1>
+    <form action = "#" method = "POST" enctype = "multipart/form-data">
+        <input type = "file" name = "file"\>
+	<input type = "submit" value="Upload">  
+	<p style="color:blue;font-size:5px;"> Note: Only mp4,avi format supported </p>
+
+	<b> OR </b>
+
+	<br><label for="url"> Enter RTSP URL : </label><br>
+    	<input type="text" name="url">
+    	<input type="Submit" ><br>
+	<p style="color:blue;font-size:5px;">eg: rtsp://server.example.org:8080/test.sdp</p>
+	
+	Dis:<input type="number"  name = "getvalue" id="myNumber" step = "5" value = "40">
+	<input type="submit" onclick="myFunction()" name = "action" value ="Change Value"> 
+
+	<br><input type="submit" name="action" value="Start Detection">
+        <input type="submit" name="action" value="Stop Detection"><br>
+        
+        <img src="{{ url_for('video_feed') }}" border = 10 class = "center" >
+    </form>   
+</body>
+</div>
+
+</html>
