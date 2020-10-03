@@ -87,26 +87,25 @@ function myFunction()
 
 <div align="center">
 <body>
-    <h1>OBJECT DETECTION APP</h1>
+    <h1>OBJECT DETECTION APP</h1><img width="100" src="file:///G:\Pranshu Personel\Github Project\Smart-Solutions\logo.jpg" border = 10 >
     <form action = "#" method = "POST" enctype = "multipart/form-data">
         <input type = "file" name = "file"\>
-	<input type = "submit" value="Upload">  
-	<p style="color:blue;font-size:5px;"> Note: Only mp4,avi format supported </p>
+	<input type = "submit" value="Upload the file">  
+  <p style="color:blue;font-size:15px;"> Note: Only mp4,avi format supported </p>
 
 	<b> OR </b>
 
 	<br><label for="url"> Enter RTSP URL : </label><br>
     	<input type="text" name="url">
     	<input type="Submit" ><br>
-	<p style="color:blue;font-size:5px;">eg: rtsp://server.example.org:8080/test.sdp</p>
+	<p style="color:blue;font-size:15px;">eg: rtsp://server.example.org:8080/test.sdp</p>
 	
 	Dis:<input type="number"  name = "getvalue" id="myNumber" step = "5" value = "40">
 	<input type="submit" onclick="myFunction()" name = "action" value ="Change Value"> 
 
 	<br><input type="submit" name="action" value="Start Detection">
         <input type="submit" name="action" value="Stop Detection"><br>
-        
-        <img src="{{ url_for('video_feed') }}" border = 10 class = "center" >
+
     </form>   
 </body>
 </div>

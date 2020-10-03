@@ -1,12 +1,24 @@
-from flask import Flask, render_template
+import time, os, requests, cv2, argparse, re
+import numpy as np
+import tensorflow as tf
 from datetime import datetime
-import re
+
+# Import utilites
+from flask import Flask, flash, render_template, Response, request, redirect, url_for, abort, send_from_directory, send_file
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
+UPLOAD_DIRECTORY = "/project/api_uploaded_files"
+
+def create_directory():
+    if not os.path.exists(UPLOAD_DIRECTORY):
+        os.makedirs(UPLOAD_DIRECTORY)
+
 @app.route("/")
 def home():
-    return "Hello, Flask!"
+    # print("Hello, Flask!")
+    return render_template('person.html')
 
 @app.route("/upload/<file_name>")
 def hello_there(file_name):
@@ -29,3 +41,16 @@ def hello_there(file_name):
 @app.route("/hello/<name>")
 def run_html_file(name = None):
     return render_template("hello_there.html", name=name, date=datetime.now())
+
+@app.route("/downloadfile/<filename>", methods = ['GET'])
+def download_file(filename):
+    return render_template('person.html',value=filename)
+
+@app.route("/files/<path:path>")
+def get_file(path):
+    """Download a file."""
+    return send_from_directory(UPLOAD_DIRECTORY, path, as_attachment=True)
+
+if __name__ == '__main__':
+    app.run(host='172.26.101.101', port=8834,debug=True)
+    app.run( port=8834,debug=True)
